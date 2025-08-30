@@ -4,7 +4,7 @@ async function sendTransactionWithProvider(privateKey,to, amount){
     //Create provider using GetBlock
     const provider=new ethers.JsonRpcProvider(`rpc server link`);
 
-    const wallet=new ethers.Wallet('Enter your Private key'); //Creating a wallet private key must be kept confidential.
+    const wallet=new ethers.Wallet(privateKey,provider); //Creating a wallet private key must be kept confidential.
 
     try {
 
