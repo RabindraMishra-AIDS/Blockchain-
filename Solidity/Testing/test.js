@@ -22,4 +22,4 @@ describe("Testing Mathematical Functions", function(){
   });
 });
 
-//=============== use (npx hardhar test) to test the script ======================
+//=============== use (npx hardhat test) to test the script ======================
