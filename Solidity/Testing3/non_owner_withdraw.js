@@ -2,7 +2,8 @@
 
 const {expect} = require("chai");
 const VendingMod = require("../Deploy.js"); // Assuming this exports the deployment module
-const {ethers, ignition} = require("hardhat");
+const {ethers} = require("hardhat");
+const {buildModule} = require("@nomicfoundation/hardhat-ignition/modules");
 
 // Using loadFixture for fixing the deployment load
 const {loadFixture} = require("@nomicfoundation/hardhat-toolbox/network-helpers");
@@ -10,7 +11,16 @@ const {loadFixture} = require("@nomicfoundation/hardhat-toolbox/network-helpers"
 // Mock deployment function (should be defined elsewhere in your test suite)
 async function vendingMachineDeploy(){
     const [owner, buyer] = await ethers.getSigners();
-    const {vendingMachine, sodaPrice} = await ignition.deploy(VendingMod);
+    
+    // Option 1: Using Ignition properly
+    const {vendingMachine, sodaPrice} = await hre.ignition.deploy(VendingMod);
+    
+    // Option 2: Direct contract deployment (more common in tests)
+    // const SodaPrice = await ethers.getContractFactory("SodaPrice");
+    // const sodaPrice = await SodaPrice.deploy();
+    // const VendingMachine = await ethers.getContractFactory("VendingMachine");
+    // const vendingMachine = await VendingMachine.deploy(sodaPrice.address);
+    
     return {owner, buyer, vendingMachine, sodaPrice};
 }
 
