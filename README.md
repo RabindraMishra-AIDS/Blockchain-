@@ -20,6 +20,17 @@ It also includes a complete **Wallet Application** developed using **React.js** 
 │   ├── Datatypes03.rs
 │   └── Memory02.rs
 │
+├── Soroban/
+│   └── EscrowContract/
+│       ├── src/
+│       │   ├── lib.rs
+│       │   └── test.rs
+│       ├── client.ts
+│       ├── client.test.ts
+│       ├── Cargo.toml
+│       ├── README.md
+│       └── package.json
+│
 ├── Solidity/
 │   ├── Hardhat/
 │   ├── Interface/
